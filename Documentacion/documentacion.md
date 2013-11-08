@@ -40,7 +40,7 @@ Para poder aislar la aplicación web, lo primero es tener una jaula chroot. Para
 sudo debootstrap --arch=amd64 saucy /home/jaulas/saucy/ http://archive.ubuntu.com/ubuntu.
 Previamente creo la carpeta y cambio el propietario a root.
 
-![captura1](https://github.com/torresj/practica-2/blob/master/capturas/captura1.png)
+![captura1](https://dl.dropboxusercontent.com/u/17453375/captura1b.png)
 
 
 ## Instalación de paquetes y bibliotecas necesarias para la aplicación 
