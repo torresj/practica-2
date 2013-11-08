@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+    <head>
+       <meta charset="UTF-8">
+       <title>Cafe</title>
+       <link rel = "stylesheet" type = "text/css" href = "/static/CSS/plantilla.css" />
+       <meta name="author" content="Jaime Torres Benavente">
+       <meta name="description" content="Ejercicio 2 de la practica 3 de D.A.I.">
+
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
+
+</head>
+<body>
+
+<div id="templatemo_wrapper">
+	
+    <div id="templatemo_header">
+		<div id="site_title"><h1>${titulo}</h1></div>
+	
+        
+        <div id="templatemo_menu">
+            <ul>
+                % if modo=="index":
+                    <li><a href="/cafe" class="current">Home</a></li>
+                    <li><a href="/cafe/form">Registrar</a></li>
+                    <li><a href="/cafe/gestion">Gestion</a></li>
+                    <li><a href="#">Contact</a></li>
+                % elif modo=="form":
+                    <li><a href="/cafe">Home</a></li>
+                    <li><a href="/cafe/form" class="current">Registrar</a></li>
+                    <li><a href="/cafe/gestion">Gestion</a></li>
+                    <li><a href="#">Contact</a></li>
+                % else:
+                    <li><a href="/cafe">Home</a></li>
+                    <li><a href="/cafe/form">Registrar</a></li>
+                    <li><a href="/cafe/gestion" class="current">Gestion</a></li>
+                    <li><a href="#">Contact</a></li>
+                % endif
+            </ul>    	
+        </div> <!-- end of templatemo_menu -->
+	</div> <!-- end of header -->
+    
+    <div id="templatemo_middle">
+        % if modo!="form":   
+        	<div id="middle_box">
+                % if log==False:
+                    <form method="POST">
+                    ${login.render()}
+                    </form>
+                    <a id="regis" href="/cafe/form">Registrarse</a>
+                     % if error!='':
+                        <p id="error">${error}</p>
+                    % endif
+                % else:
+                    <p id="saludo">Bienvenid@ <em>${user}</em> <a id="cerrar" href="/cafe/cerrarsesion"><img src="/static/images/cerrar.png" alt"cerrar sesion"/></a><p>
+                % endif
+            </div>
+        % endif	
+    </div> <!-- end of middle -->
+    
+    <div id="tmeplatemo_main">
+    	<div id="templatemo_sidebar">
+        	
+            <h3>${subtitulo1}</h3>
+        	<div class="templatemo_sb_box">
+            	<span class="top"></span><span class="bottom"></span>
+        		
+        		% for x in cafes: 
+                    <div class="news_box"><span class="nb_top"></span><span class="nb_bottom"></span>
+            			<h6><a href="/cafe/${x[0]}">${x[0]}</a></h6>
+						${x[1]}
+					</div>
+                % endfor
+            
+            	<div class="cleaner"></div>
+		  </div>
+            
+            <div id="promotion">
+            	<a href="#">
+            	<span>${cafeEspecial[0]}</span>
+            	${cafeEspecial[1]}
+                </a>
+            </div>
+            
+            <div class="cleaner"></div>
+        </div> <!-- end of sidebar -->
+        
+        <div id="templatemo_content">
+        	<div class="content_box">
+            
+            	<h2>${subtitulo2}</h2>
+
+                % if modo=="index":
+                    <p>${cuerpo}</p>
+                % elif modo=="gestion":
+                    % if log==True and actualizar==False:
+                        <table id="datos">
+                           <tr>
+                                <td><em>Usuario:</em> ${user}</td>     
+                            </tr>
+                            <tr>
+                                <td><em>Nombre:</em> ${nombre}</td>    
+                            </tr>
+                            <tr>
+                                <td><em>Apellidos:</em> ${apell}</td>     
+                            </tr>
+                            <tr>
+                                <td><em>Direccion:</em> ${direc} </td>       
+                            </tr>
+                            <tr>
+                                <td><em>Email:</em> ${email}</td>        
+                            </tr>
+                            <tr>
+                                <td><em>Fecha de Nacimiento:</em> ${dia}/${mes}/${anio}</td>       
+                            </tr>
+                            <tr>
+                                <td id="botones"><a id="boton_act" href="/cafe/gestion_actualizar">Modificar</a></td> 
+                                <td id="botones2"><a id="boton_bor" href="/cafe/gestion_borrar">Borrar Usuario</a></td>      
+                            </tr>
+                        </table>
+                        
+                    % elif log==True and actualizar==True:
+                        <form method="POST">
+                            ${registro.render()}
+                        </form>
+                    % else:
+                        <p style="color:#DF0101;font-size:1.5em;">${cuerpo}</p>
+                    % endif
+
+                % else:
+                    % if reg==False:
+                        <form method="POST">
+                            ${registro.render()}
+                        </form>
+                    %else:
+                        <p id="registrado">${cuerpo}</p>
+                    %endif
+                % endif
+
+                <div class="cleaner"></div>
+            </div>
+            
+            % if servicios!=[]:
+                <div class="content_box">
+               	  <h2>${subtitulo3}</h2>
+                	<img class="image_wrapper image_fr" src="/static/images/tempaltemo_image_04.jpg" alt="Image" />
+                	<p><em>${subtitulo4}</p>
+                    <ul class="tmo_list">
+                    
+                    % for x in servicios:
+                    	<li><a href="#">${x}</a></li>
+                    % endfor
+
+                    </ul>
+                    
+                    <div class="cleaner h20"></div>
+                    <div class="cleaner"></div>
+                </div>
+            % endif
+            <div class="content_box_last">
+            	<h2>Galeria de imagenes</h2>
+                <ul class="gallery">
+                	<li><a href="#"><img src="/static/images/templatemo_image_01.jpg" alt="Image 1" />${cafes[0][0]}</a></li>
+                    <li><a href="#"><img src="/static/images/templatemo_image_03.jpg" alt="Image 3" />${cafes[1][0]}</a></li>                    
+                    <li><a href="#"><img src="/static/images/templatemo_image_02.jpg" alt="Image 2" />${cafes[2][0]}</a></li>
+                </ul>
+            </div>
+        </div>
+        
+		<div class="cleaner"></div>
+    </div> <!-- end of main -->
+    
+    <div id="templatemo_footer">
+   		${piepagina} 
+    </div> <!-- end of templatemo_footer -->
+
+</div> <!-- end of wrapper -->
+<p id="licencia">Plantilla,Css e imagenes obtenidas de <a href="http://www.mejoresplantillasgratis.es/">aqui</a></p>
+</body>
+</html>
