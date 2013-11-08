@@ -163,13 +163,13 @@ Por ultimo muestro como queda las terminales despues de moverse por la aplicaci�
 
 ![captura13](https://dl.dropboxusercontent.com/u/17453375/captura13.png)
 
-*Nota: En las imagenes no se aprecia, pero hay en un enlace al final que no indica de donde
+*Nota: En las imagenes no se aprecia, pero hay en un enlace al final que nos indica de donde
 he obtenido la plantilla y las imagenes que en ella aparecen
 
 ## Direccion de la aplicacion en github
 
-* Practica: [https://github.com/torresj/practica-1](https://github.com/torresj/practica-1)
-* Documentación: [https://github.com/torresj/practica-1/blob/master/documentacion/documentacion.md](https://github.com/torresj/practica-1/blob/master/documentacion/documentacion.md)
+* Practica: [https://github.com/torresj/practica-2](https://github.com/torresj/practica-2)
+* Documentación: [https://github.com/torresj/practica-2/blob/master/documentacion/documentacion.md](https://github.com/torresj/practica-2/blob/master/documentacion/documentacion.md)
 
 ##Biliografía
   
