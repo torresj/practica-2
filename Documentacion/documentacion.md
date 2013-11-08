@@ -169,7 +169,7 @@ he obtenido la plantilla y las imagenes que en ella aparecen
 ## Direccion de la aplicacion en github
 
 * Practica: [https://github.com/torresj/practica-2](https://github.com/torresj/practica-2)
-* Documentación: [https://github.com/torresj/practica-2/blob/master/documentacion/documentacion.md](https://github.com/torresj/practica-2/blob/master/documentacion/documentacion.md)
+* Documentación: [https://github.com/torresj/practica-2/blob/master/Documentacion/documentacion.md](https://github.com/torresj/practica-2/blob/master/Documentacion/documentacion.md)
 
 ##Biliografía
   
