@@ -40,7 +40,7 @@ Para poder aislar la aplicación web, lo primero es tener una jaula chroot. Para
 sudo debootstrap --arch=amd64 saucy /home/jaulas/saucy/ http://archive.ubuntu.com/ubuntu.
 Previamente creo la carpeta y cambio el propietario a root.
 
-![captura1]()
+![captura1](https://github.com/torresj/practica-2/blob/master/capturas/captura1.png)
 
 
 ## Instalación de paquetes y bibliotecas necesarias para la aplicación 
@@ -48,20 +48,20 @@ Previamente creo la carpeta y cambio el propietario a root.
 Una vez que tenemos el sistema mínimo, tenemos que instalar todo lo necesario para que nuestra
 aplicación funcione. Entramos en la jaula con la orden chroot.
 
-![captura2]()
+![captura2](https://github.com/torresj/practica-2/blob/master/capturas/captura2.png)
 
 ### Python 2.7, Web.py, Mako.py y PyMongo.py
 
 Una vez dentro de la jaula compruebo que viene instalado python3 pero no python2.7. Para instalarlo
 uso apt-get como se muestra en la imagen.
 
-![captura3]()
+![captura3](https://github.com/torresj/practica-2/blob/master/capturas/captura3.png)
 
 Con python funcionando, el siguiente paso es descargar el framework 'web.py', descomprimir el paquete
 y copiarlo al directorio home de la jaula. Desde la jaula entramos en la carpeta web.py-0.37 y 
 ejecutamos el setup.py para instalar 'web.py'.
 
-![captura4]()
+![captura4](https://github.com/torresj/practica-2/blob/master/capturas/captura4.png)
 
 Para implementar el modelo vista controlador necesitamos usar plantillas, para ello uso una biblioteca
 muy potente para python llamada 'mako'. Igual que 'web.py', descargamos 'mako' de su pagina oficial,
@@ -105,18 +105,18 @@ de que no puede salir de la jaula. Podemos limitar este acceso editando el archi
 servicio ssh que se encuentra en '/etc/ssh/sshd_config'. Hay que añadir justo al final una serie de lineas
 como se muestran en la imagen.
 
-![captura5]()
+![captura5](https://github.com/torresj/practica-2/blob/master/capturas/captura5.png)
 
 Las ultimas lineas no comentadas lo que hacen es dar permiso al usuario admin y si se conecta establecer 
 su directorio dentro de la jaula 'ChrootDirectory /home/jaulas/server'. Despues de guardar los cambios
 reiniciamos el servicio con 'sudo service ssh restart' y volvemos a conectarnos con ssh.
 
-![captura6]()
+![captura6](https://github.com/torresj/practica-2/blob/master/capturas/captura6.png)
 
 Como podemos apreciar en la imagen, no podemos salir de la jaula, además este usuario no tiene permisos
 en la carpeta del sistema de la jaula, por ello solo puede crear o borrar archivos en el home.
 
-![captura7]()
+![captura7](https://github.com/torresj/practica-2/blob/master/capturas/captura7.png)
 
 ## Lanzar y acceder a traves del navegador a la aplicacion
 
@@ -142,7 +142,7 @@ con ssh y movernos a la carpeta en la que están los archivos python para lanzar
 web.py lanza un servidor web en el que gestionara las peticiones del navegador en 
 http://localhost:8080/cafe (si no ponemos /cafe nos informará de que la página no existe)
 
-![captura8]()
+![captura8](https://github.com/torresj/practica-2/blob/master/capturas/captura8.png)
 
 Ya tenemos la aplicacion funcionando. Se trata simplemente de una serie de archivos python
 que usando templates sirven páginas web usando web.py. Podemos navegar por las páginas,
@@ -151,17 +151,17 @@ práctica, no comento el código para no alargar innecesariamente el documento.
 
 En las siguientes capturas podemos ver algunas imagenes que muestran la aplicacion.
 
-![captura9]()
+![captura9](https://github.com/torresj/practica-2/blob/master/capturas/captura9.png)
 
-![captura10]()
+![captura10](https://github.com/torresj/practica-2/blob/master/capturas/captura10.png)
 
-![captura11]()
+![captura11](https://github.com/torresj/practica-2/blob/master/capturas/captura11.png)
 
-![captura12]()
+![captura12](https://github.com/torresj/practica-2/blob/master/capturas/captura12.png)
 
 Por ultimo muestro como queda las terminales despues de moverse por la aplicación
 
-![captura13]()
+![captura13](https://github.com/torresj/practica-2/blob/master/capturas/captura13.png)
 
 *Nota: En las imagenes no se aprecia, pero hay en un enlace al final que no indica de donde
 he obtenido la plantilla y las imagenes que en ella aparecen
