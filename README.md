@@ -1,4 +1,4 @@
-#practica-2
+#Practica-2
 
 Segunda practica de la asignatura IV 
 
